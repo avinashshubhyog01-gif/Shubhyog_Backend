@@ -4,7 +4,7 @@ const otpSchema = new mongoose.Schema({
   mobile: { type: String, required: true },
   otp: { type: String, required: true },
   role: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now, expires: 300 } // expires after 5 minutes
+  createdAt: { type: Date, default: Date.now, expires: 30 } // expires after 30 seconds
 });
 
 const Otp = mongoose.model('Otp', otpSchema);
