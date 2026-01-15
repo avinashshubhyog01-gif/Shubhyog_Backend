@@ -1,21 +1,25 @@
+import { Router } from "express";
+import {
+  requestUserOtp,
+  verifyUserOtp,
+  requestSuperAdminOtp,
+  verifySuperAdminOtp,
+  requestBanquetAdminOtp,
+  verifyBanquetAdminOtp
+} from "../controllers/authController.js";
 
-import { Router } from 'express';
 const router = Router();
-import { requestSuperAdminOtp, verifySuperAdminOtp, requestBanquetAdminOtp, verifyBanquetAdminOtp, requestUserOtp, verifyUserOtp, googleLogin, googleCallback } from '../controllers/authController.js';
-// User OTP routes (for mobile app)
-router.post('/user/request-otp', requestUserOtp);
-router.post('/user/verify-otp', verifyUserOtp);
 
-// Super Admin OTP routes
-router.post('/superadmin/request-otp', requestSuperAdminOtp);
-router.post('/superadmin/verify-otp', verifySuperAdminOtp);
+// USER
+router.post("/user/request-otp", requestUserOtp);
+router.post("/user/verify-otp", verifyUserOtp);
 
-// Banquet Admin OTP routes
-router.post('/banquetadmin/request-otp', requestBanquetAdminOtp);
-router.post('/banquetadmin/verify-otp', verifyBanquetAdminOtp);
+// SUPER ADMIN
+router.post("/superadmin/request-otp", requestSuperAdminOtp);
+router.post("/superadmin/verify-otp", verifySuperAdminOtp);
 
-// Google login routes
-router.post('/google', googleLogin);
-router.get('/google/callback', googleCallback);
+// BANQUET ADMIN
+router.post("/banquetadmin/request-otp", requestBanquetAdminOtp);
+router.post("/banquetadmin/verify-otp", verifyBanquetAdminOtp);
 
 export default router;

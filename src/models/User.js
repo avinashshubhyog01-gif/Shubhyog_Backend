@@ -1,7 +1,11 @@
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
-  mobile: { type: String, required: true, unique: true },
+mobile: {
+  type: String,
+  unique: true, // ✅ OK
+  required: true
+},
   name: { type: String },
   role: { type: String, enum: ['superadmin', 'banquetadmin', 'user'], required: true },
   // Add more fields as needed (email, address, etc.)
